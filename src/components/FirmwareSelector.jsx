@@ -82,8 +82,18 @@ export default function FirmwareSelector({
         )}
 
         <div className="option-group">
-          <label className="option-label">Upload Custom Firmware:</label>
+          <label className="option-label">Manual Upload (Optional):</label>
           <div className="upload-area">
+            <p className="upload-hint-top">
+              Upload custom firmware from{' '}
+              <a
+                href="https://github.com/MeshGridStack/meshgrid-firmware/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub Releases
+              </a>
+            </p>
             <input
               type="file"
               accept=".bin"
@@ -101,16 +111,6 @@ export default function FirmwareSelector({
                 <span className="file-name">{uploadedFile}</span>
               </div>
             )}
-            <p className="upload-hint">
-              Optional: Upload custom firmware from{' '}
-              <a
-                href="https://github.com/MeshGridStack/meshgrid-firmware/releases"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub Releases
-              </a>
-            </p>
           </div>
         </div>
       </div>

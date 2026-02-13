@@ -14,14 +14,14 @@
 }
 
 .modal-content {
-  background: #1e1e1e;
+  background: var(--bg-secondary);
   border-radius: 12px;
   max-width: 1200px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   padding: 2rem;
-  color: #e0e0e0;
+  color: var(--text-primary);
 }
 
 .modal-header {
@@ -30,20 +30,20 @@
   align-items: center;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .modal-header h3 {
   margin: 0;
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .modal-close {
   background: none;
   border: none;
   font-size: 2rem;
-  color: #999;
+  color: var(--text-secondary);
   cursor: pointer;
   padding: 0;
   width: 40px;
@@ -56,8 +56,8 @@
 }
 
 .modal-close:hover {
-  background: #333;
-  color: #fff;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 /* Filters */
@@ -73,7 +73,7 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #ccc;
+  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
@@ -85,23 +85,23 @@
 
 .filter-chip {
   padding: 0.5rem 1rem;
-  background: #2a2a2a;
-  border: 1px solid #444;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
-  color: #e0e0e0;
+  color: var(--text-primary);
   cursor: pointer;
   transition: all 0.2s;
   font-size: 0.9rem;
 }
 
 .filter-chip:hover {
-  background: #333;
-  border-color: #555;
+  background: var(--bg-secondary);
+  border-color: var(--border-color-light);
 }
 
 .filter-chip.active {
-  background: #1a73e8;
-  border-color: #1a73e8;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
   color: #fff;
 }
 
@@ -114,8 +114,8 @@
 }
 
 .device-card {
-  background: #2a2a2a;
-  border: 2px solid #3a3a3a;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
@@ -126,19 +126,19 @@
 }
 
 .device-card:hover {
-  border-color: #1a73e8;
+  border-color: var(--accent-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-hover);
 }
 
 .device-card.selected {
   border-color: #34a853;
-  background: #2a3a2a;
+  background: var(--bg-secondary);
 }
 
 .device-image {
   aspect-ratio: 4/3;
-  background: #1e1e1e;
+  background: var(--bg-secondary);
   border-radius: 4px;
   margin-bottom: 1rem;
   display: flex;
@@ -157,7 +157,7 @@
 .device-placeholder {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #1a73e8;
+  color: var(--accent-color);
   text-align: center;
   padding: 1rem;
 }
@@ -169,7 +169,7 @@
 .device-info-card h5 {
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-primary);
   line-height: 1.3;
 }
 
@@ -182,7 +182,7 @@
 
 .badge-chip {
   padding: 0.25rem 0.5rem;
-  background: #1a73e8;
+  background: var(--accent-color);
   color: #fff;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -200,7 +200,7 @@
 
 .device-specs {
   font-size: 0.85rem;
-  color: #999;
+  color: var(--text-secondary);
 }
 
 .selected-indicator {
@@ -221,7 +221,7 @@
 .no-devices {
   text-align: center;
   padding: 3rem;
-  color: #999;
+  color: var(--text-secondary);
 }
 
 /* Responsive */

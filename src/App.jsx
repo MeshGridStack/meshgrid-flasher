@@ -18,6 +18,10 @@ function App() {
   const [progress, setProgress] = useState(0);
   const [logs, setLogs] = useState([]);
   const [manualFirmware, setManualFirmware] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved ? saved === 'dark' : true; // Default to dark mode
+  });
   const flasherRef = useRef(null);
 
   // Check browser compatibility and secure context
@@ -28,6 +32,21 @@ function App() {
   useEffect(() => {
     addLog(`✓ Firmware versions ready`);
   }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   const addLog = (message, type = 'info') => {
     const timestamp = new Date().toLocaleTimeString();
@@ -173,6 +192,14 @@ function App() {
 
   return (
     <div className="app">
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      >
+        {isDarkMode ? '☀️' : '🌙'}
+      </button>
+
       <header className="header">
         <h1>🌐 MeshGrid Web Flasher</h1>
         <p className="subtitle">Flash LoRa mesh firmware directly from your browser</p>

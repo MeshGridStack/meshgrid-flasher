@@ -3,7 +3,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -36,7 +36,7 @@
 
 .option-label {
   font-weight: 600;
-  color: #333;
+  color: var(--text-tertiary);
   font-size: 1rem;
 }
 
@@ -48,8 +48,8 @@
 }
 
 .protocol-card {
-  background: white;
-  border: 2px solid #e0e0e0;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
@@ -58,14 +58,14 @@
 }
 
 .protocol-card:hover {
-  border-color: #1a73e8;
+  border-color: var(--accent-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.15);
+  box-shadow: 0 4px 12px var(--shadow-hover);
 }
 
 .protocol-card.selected {
   border-color: #34a853;
-  background: #f0f8f4;
+  background: var(--bg-tertiary);
   box-shadow: 0 4px 12px rgba(52, 168, 83, 0.2);
 }
 
@@ -78,7 +78,7 @@
 
 .protocol-name {
   font-weight: 600;
-  color: #333;
+  color: var(--text-tertiary);
   font-size: 0.95rem;
 }
 
@@ -90,7 +90,7 @@
 
 .protocol-description {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
@@ -99,8 +99,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: white;
-  border: 2px solid #e0e0e0;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
@@ -110,20 +110,20 @@
 }
 
 .ble-toggle:hover {
-  border-color: #1a73e8;
+  border-color: var(--accent-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.15);
+  box-shadow: 0 4px 12px var(--shadow-hover);
 }
 
 .ble-toggle.enabled {
   border-color: #34a853;
-  background: #f0f8f4;
+  background: var(--bg-tertiary);
 }
 
 .toggle-icon {
   width: 24px;
   height: 24px;
-  border: 2px solid #ccc;
+  border: 2px solid var(--border-color-light);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -147,19 +147,19 @@
 
 .toggle-title {
   font-weight: 600;
-  color: #333;
+  color: var(--text-tertiary);
   font-size: 0.95rem;
 }
 
 .toggle-hint {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 /* Upload Area */
 .upload-area {
-  background: #f8f9fa;
-  border: 2px dashed #ccc;
+  background: var(--bg-tertiary);
+  border: 2px dashed var(--border-color-light);
   border-radius: 8px;
   padding: 1.5rem;
   transition: all 0.2s;
@@ -171,8 +171,8 @@
 }
 
 .upload-area:hover {
-  border-color: #1a73e8;
-  background: #f0f4ff;
+  border-color: var(--accent-color);
+  background: var(--bg-secondary);
 }
 
 .file-input-hidden {
@@ -185,7 +185,7 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 0.875rem 2rem;
-  background: #1a73e8;
+  background: var(--accent-color);
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -197,9 +197,9 @@
 }
 
 .upload-button:hover {
-  background: #1557b0;
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-hover);
 }
 
 .upload-icon {
@@ -232,12 +232,12 @@
 .upload-hint-top {
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-secondary);
   width: 100%;
 }
 
 .upload-hint-top a {
-  color: #1a73e8;
+  color: var(--accent-color);
   font-weight: 500;
   text-decoration: none;
 }

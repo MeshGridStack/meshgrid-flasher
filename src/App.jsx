@@ -20,8 +20,10 @@ function App() {
   const [manualFirmware, setManualFirmware] = useState(null);
   const flasherRef = useRef(null);
 
-  // Check browser compatibility
+  // Check browser compatibility and secure context
   const isSupported = Flasher.isSupported();
+  const isSecureContext = window.isSecureContext;
+  const showSecurityWarning = isSupported && !isSecureContext;
 
   useEffect(() => {
     addLog(`✓ Firmware versions ready`);
@@ -180,6 +182,23 @@ function App() {
         <div className="card warning">
           <h3>⚠️ Browser Not Supported</h3>
           <p>Web Serial API is required. Please use Chrome 89+, Edge 89+, or Opera 75+</p>
+        </div>
+      )}
+
+      {showSecurityWarning && (
+        <div className="card warning">
+          <h3>🔒 HTTPS Required</h3>
+          <p>
+            Web Serial API requires a secure context (HTTPS). This page is currently accessed via HTTP.
+          </p>
+          <p>
+            <strong>Solutions:</strong>
+          </p>
+          <ul>
+            <li>Use <code>https://</code> instead of <code>http://</code></li>
+            <li>Or access via <code>http://localhost</code> for development</li>
+            <li>Deploy to GitHub Pages, Netlify, or Vercel (auto-HTTPS)</li>
+          </ul>
         </div>
       )}
 

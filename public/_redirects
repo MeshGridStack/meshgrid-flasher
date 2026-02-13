@@ -1,0 +1,7 @@
+# Netlify/Cloudflare Pages redirects
+# Don't redirect static files
+/firmware/*  /firmware/:splat  200
+/images/*    /images/:splat    200
+
+# SPA fallback for other routes
+/*    /index.html   200

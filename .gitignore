@@ -13,12 +13,13 @@ dist-ssr
 *.local
 
 # Firmware binaries (download with ./download-firmware.sh)
-# Uncomment if you want to ignore firmware files (recommended)
-public/firmware/*.bin
-public/firmware/*.sha256
-public/firmware/*.elf
+# Firmware files are COMMITTED for easier deployment
+# If you want to ignore them for development, uncomment these lines:
+# public/firmware/*.bin
+# public/firmware/*.sha256
+# public/firmware/*.elf
 
-# Or use Git LFS if you want to commit firmware files
+# Or use Git LFS for large binaries:
 # See: https://git-lfs.github.com/
 
 # Editor directories and files

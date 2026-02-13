@@ -64,8 +64,15 @@ export async function loadFirmware(deviceId, protocolSuffix, enableBLE, version 
   const firmwareUrl = `/firmware/${filename}`;
   const checksumUrl = `/firmware/${filename}.sha256`;
 
-  // Load firmware
-  const response = await fetch(firmwareUrl);
+  console.log('Loading firmware from:', firmwareUrl);
+
+  // Load firmware with cache busting
+  const response = await fetch(firmwareUrl, {
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-cache'
+    }
+  });
   if (!response.ok) {
     throw new Error(`Firmware ${filename} not found`);
   }

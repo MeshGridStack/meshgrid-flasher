@@ -20,7 +20,11 @@ function App() {
   const [manualFirmware, setManualFirmware] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true; // Default to dark mode
+    if (saved) {
+      return saved === 'dark';
+    }
+    // Default to system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
   const flasherRef = useRef(null);
 
@@ -37,15 +41,29 @@ function App() {
     const root = document.documentElement;
     if (isDarkMode) {
       root.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
 
+  useEffect(() => {
+    // Listen for system theme changes only if user hasn't manually set a preference
+    const savedTheme = localStorage.getItem('theme');
+    if (!savedTheme) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = (e) => {
+        setIsDarkMode(e.matches);
+      };
+
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+  }, []);
+
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem('theme', newMode ? 'dark' : 'light');
   };
 
   const addLog = (message, type = 'info') => {
